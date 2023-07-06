@@ -1,7 +1,7 @@
 // Exercise 1
 #[allow(dead_code)]
 fn exercise1(color: &str) -> String {
-`    color.to_string()
+    color.to_string()
 }
 
 // Exercise 2
@@ -34,7 +34,7 @@ fn reverse_string(input: &str) -> String {
 fn is_palindrome(word: &str) -> bool {
     let reserve_string = reverse_string(word).to_lowercase();
     if word.to_lowercase() == reserve_string {
-        return true
+        return true;
     }
     false
 }
@@ -44,8 +44,10 @@ fn is_palindrome(word: &str) -> bool {
 fn count_char_occurrences(string: &str, ch: char) -> usize {
     let mut i: usize = 0;
     for s in string.chars() {
-        if (s == ' ') { break; }
-        if (s == ch) {
+        if s == ' ' {
+            break;
+        }
+        if s == ch {
             i += 1;
         }
     }

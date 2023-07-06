@@ -38,7 +38,7 @@ fn calculate_average(numbers: &[f64]) -> f64 {
 fn sum_even_numbers(numbers: &[i32]) -> i32 {
     let mut sum:i32 = 0;
     for number in numbers  {
-        if (number % 2 == 0) {
+        if number % 2 == 0 {
             sum += number;
         }
     }
