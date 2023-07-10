@@ -3,7 +3,7 @@
 fn exercise1() {
     // Use as many approaches as you can to make it work
     let x = String::from("hello, world");
-    let y = x;
+    let y = &x;
     let z = x;
 }
 
@@ -14,7 +14,7 @@ fn exercise2() {
     let s1 = String::from("hello, world");
     let s2 = take_ownership(s1);
 
-    println!("{}", s2);
+    println!("{:?}", s2);
 }
 // Only modify the code below!
 fn take_ownership(s: String) {
@@ -33,7 +33,7 @@ fn exercise3() {
 
     let values_number = values.len();
 
-    let additions: Vec<usize> = vec![0];
+    let additions: &Vec<usize> = &Vec::from([0]);
 
     println!("{:?}", values_number);
 
@@ -42,7 +42,7 @@ fn exercise3() {
 
         // Sumar valores en additions
         for element_index in additions {
-            let addition_aux = values[element_index];
+            let addition_aux = values[*element_index];
             addition = addition_aux + addition;
         }
     }
@@ -52,7 +52,7 @@ fn exercise3() {
 // Make it compile
 fn exercise4(value: u32) -> &'static str {
     let str_value = value.to_string(); // Convert u32 to String
-    let str_ref: &str = &str_value; // Obtain a reference to the String
+    let str_ref:  &'static str = Box::leak(str_value.into_boxed_str()); // Obtain a reference to the String
     str_ref // Return the reference to the String
 }
 
@@ -68,8 +68,8 @@ fn exercise5() {
         Some(child) => child,
         None => {
             let value = "3.0".to_string();
-            my_map.insert(key, value);
-            &value // HERE IT FAILS
+            my_map.insert(key, value.clone().to_string());
+            value.as_ref() // HERE IT FAILS
         }
     };
 

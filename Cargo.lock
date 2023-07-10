@@ -7,9 +7,9 @@ name = "basic-of-rust"
 version = "0.1.0"
 
 [[package]]
-name = "rust-bootcamp-2023"
+name = "ownership-borrowing"
 version = "0.1.0"
 
 [[package]]
-name = "ownership-borrowing"
+name = "rust-bootcamp-2023"
 version = "0.1.0"
